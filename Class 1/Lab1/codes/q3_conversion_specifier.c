@@ -7,7 +7,6 @@ and resulting output to allow the items to be printed.
 */
 
 #include <stdio.h>
-#include <errno.h>
 
 void main() {
 	int x = -23;

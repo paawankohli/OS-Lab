@@ -81,7 +81,7 @@ void main(int argv, char **arg) {
 }
 ```
 
-![q1](./screenshots/q1.png)
+</br>![q1](./screenshots/q1.png)
 
 
 ### Q2. Write a program to list the files given as arguments, stopping every 20 buffers until a key is hit (a simple version of more UNIX utility)
@@ -162,7 +162,82 @@ void main (int argv, char **arg) {
 }
 ```
 
-![q2](./screenshots/q2part1.png)
-![q2](./screenshots/q2part2.png)
-![q2](./screenshots/q2part3.png)
 
+</br></br>![q2](./screenshots/q2part1.png)
+</br></br>![q2](./screenshots/q2part2.png)
+</br></br>![q2](./screenshots/q2part3.png)
+
+### Q3. Demonstrate  the use of different conversion specifiers and resulting output to allow the items to be printed.
+
+```c
+#include <stdio.h>
+
+void main() {
+	int x = -23;
+	printf("integer: %d\n", x);
+
+	unsigned int y = 25;
+	printf("unsigned integer %u\n", y);
+
+	printf("hexadecimal versions of above two: %#x and %#x\n", x, y);
+
+	float z = 3.14;
+	printf("float: %f\n", z);
+
+	double d = 424242.171717;
+	printf("double %3.3lf\n", d);
+
+
+	char c = 'h';
+	printf("char: %c\n", c);
+
+	char str[] = "Hello world!";
+	printf("string: %s\n", str);
+}
+```
+
+</br>![q3](./screenshots/q3.png)
+
+### Q4. Write a program to copy character by character copy is accomplished using calls to the functions referenced in stdio.h
+
+```
+how to run: ./q4_copy sourceFilename destinationFilename
+```
+
+```c
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void main(int argv, char ** arg) {
+
+	// must have searchText and filename
+	if (argv != 3) {
+		printf("Invalid syntax.\nFormat: ./q4_copy sourceFilename destinationFilename \n");
+		exit(0);
+	}
+
+	char srcFile[100], dstFile[100];
+	strcpy(srcFile, arg[1]);
+	strcpy(dstFile, arg[2]);
+
+	FILE* in = fopen(srcFile, "r");
+	FILE* out = fopen(dstFile, "w");
+
+	char c;
+
+	while ( (c = fgetc(in)) != EOF) {
+		fputc(c, out);
+	}
+
+	fclose(in);
+	fclose(out);
+
+	printf("Copying successful!\n");
+}
+
+```
+
+</br>![q4](./screenshots/q4.png)
