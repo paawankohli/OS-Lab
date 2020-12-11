@@ -162,7 +162,6 @@ void main (int argv, char **arg) {
 }
 ```
 
-
 </br></br>![q2](./screenshots/q2part1.png)
 </br></br>![q2](./screenshots/q2part2.png)
 </br></br>![q2](./screenshots/q2part3.png)
@@ -237,7 +236,6 @@ void main(int argv, char ** arg) {
 
 	printf("Copying successful!\n");
 }
-
 ```
 
 </br>![q4](./screenshots/q4.png)
