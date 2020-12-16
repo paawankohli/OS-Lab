@@ -1,6 +1,0 @@
-sample text
-this is line 2
-hello world
-OS Lab
-Paawan Kohli
-180905416

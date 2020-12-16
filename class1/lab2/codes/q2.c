@@ -16,7 +16,7 @@ void printRecurrsive(char *dir, int depth) {
 	DIR* fd = opendir(dir);
 
 	if (fd == NULL) {
-		fprintf(stderr, "Error! Can't open %s\n", dir);
+		printf("Error! Can't open %s\n", dir);
 		exit(0);
 	}
 
@@ -26,25 +26,20 @@ void printRecurrsive(char *dir, int depth) {
 	struct stat buffer;
 
 	while ((entry = readdir(fd)) != NULL) {
-		lstat(entry->d_name, &buffer);
+		stat(entry->d_name, &buffer);
 
-		if (S_ISDIR(buffer.st_mode)) {
-
-			if (strcmp(".", entry->d_name) == 0 || strcmp("..", entry->d_name) == 0) {
-				continue;
-			}
-
-			// print
-			printSpace(depth);
-			printf("%s \n", entry->d_name);
-			
-			printRecurrsive(entry->d_name, depth + 1);
+		if (strcmp(".", entry->d_name) == 0 || strcmp("..", entry->d_name) == 0) {
+			continue;
 		}
-		else {
 
-			// print
-			printSpace(depth);
-			printf("%s \n", entry->d_name);
+		// print
+		printSpace(depth);
+		printf("%s \n", entry->d_name);
+
+		// if directory then be recurrsive
+		// if (buffer.st_mode & S_IFMT == S_IFDIR) {
+		if (S_ISDIR(buffer.st_mode)) {
+			printRecurrsive(entry->d_name, depth + 1);
 		}
 	}
 

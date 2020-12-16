@@ -19,7 +19,7 @@ void main(int argv, char ** arg) {
 
 	// must have searchText and filename
 	if (argv != 3) {
-		printf("Invalid syntax.\nFormat: ./q4_copy sourceFilename destinationFilename \n");
+		printf("Invalid syntax.\nFormat: %s sourceFilename destinationFilename \n", arg[0]);
 		exit(0);
 	}
 

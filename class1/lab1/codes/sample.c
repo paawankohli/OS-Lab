@@ -52,12 +52,13 @@ void main() {
 
 	char buffer[1024];
 	int in = open("in.txt", O_RDONLY);
-	int out = open("out.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	int out = open("out.txt", O_WRONLY | O_CREAT, S_IRWXU);
 
 	int nread;
 	
-	while ((nread = read(in, buffer, sizeof(buffer))) > 0)
+	while ((nread = read(in, buffer, sizeof(buffer))) > 0) {
 		write(out, buffer, nread);
+	}
 
 	close(in);
 	close(out);
