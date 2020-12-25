@@ -92,7 +92,14 @@ void *reader(void *rno) {
 		sem_wait(&wrt);
 	
 	pthread_mutex_unlock(&mutex);
+	
+
+
+
 	printf("Reader %d: read cnt as %d\n", *((int *)rno), cnt);
+	
+
+
 	pthread_mutex_lock(&mutex);
 	
 	numreader--;
@@ -296,12 +303,12 @@ void* customer(void *number) {
 	printf("Customer %d entering waiting room.\n", num);
 	
 	sem_wait(&barberChair);
-	
 	sem_post(&waitingRoom);
 	
 	printf("Customer %d waking the barber.\n", num);
 	
 	sem_post(&barberPillow);
+	
 	sem_wait(&seatBelt);
 	sem_post(&barberChair);
 	

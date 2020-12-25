@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
 }
 
 void* customer(void *number) {
-	int num = *(int *)number;
+	int num = *(int*)number;
 	printf("Customer %d leaving for barber shop.\n", num);
 	
 	randwait(5);

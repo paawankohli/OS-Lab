@@ -11,10 +11,8 @@ int numreader = 0;
 
 void *writer(void *wno) {
 	sem_wait(&wrt);
-	
 	cnt = cnt * 2;
 	printf("Writer %d modified cnt to %d\n", (*((int *)wno)), cnt);
-	
 	sem_post(&wrt);
 }
 
@@ -26,7 +24,14 @@ void *reader(void *rno) {
 		sem_wait(&wrt);
 	
 	pthread_mutex_unlock(&mutex);
+
+
+
 	printf("Reader %d: read cnt as %d\n", *((int *)rno), cnt);
+	
+
+
+
 	pthread_mutex_lock(&mutex);
 	
 	numreader--;

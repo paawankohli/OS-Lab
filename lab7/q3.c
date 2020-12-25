@@ -10,6 +10,7 @@ sem_t mutex1, mutex2;
 
 void *A(void *arg) {
 	sem_wait(&mutex1);
+	sleep(1);
 	sem_wait(&mutex2);
 
 	num = 2;
@@ -21,6 +22,7 @@ void *A(void *arg) {
 
 void *B(void *arg) {
 	sem_wait(&mutex2);
+	sleep(1);
 	sem_wait(&mutex1);
 
 	num = 1;

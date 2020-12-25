@@ -27,8 +27,8 @@ int main() {
 	}
 
 	printf("Enter 4 integers: ");
-
 	int buffer[BUFFER_SIZE + 1];
+
 
 	for (int i = 0; i < 4; i++) {
 		scanf("%d", &buffer[i]);

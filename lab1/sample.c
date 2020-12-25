@@ -52,7 +52,7 @@ void main() {
 
 	char buffer[1024];
 	int in = open("in.txt", O_RDONLY);
-	int out = open("out.txt", O_WRONLY | O_CREAT, S_IRWXU);
+	int out = open("out.txt", O_WRONLY | O_CREAT, 0777);
 
 	int nread;
 	

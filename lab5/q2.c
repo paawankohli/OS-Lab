@@ -1,7 +1,6 @@
 // Q2. Demonstrate creation, writing to and reading from a pipe.
 
 #include <sys/wait.h>
-#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

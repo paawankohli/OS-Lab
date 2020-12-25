@@ -15,9 +15,7 @@ int lstat(const char *path, struct stat *buf);
 all 3 return 0 if succesful and store info about file in pointer
 
 stat is used to return info about denoted by a path
-
 fstat is used to return info about a file denoted by file descriptor
-
 lstat is used for paths too BUT in case of a symbolic link, lstat()
 
 */
